@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/home"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Książki</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Książki</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="container">
+
+    <ion-list>
+      @for(categ of category; track categ){
+      <ion-item [routerLink]="['/tabs/products-list', 'books', 'all']" detail="true" button>
+        <ion-label>{{categ}}</ion-label>
+      </ion-item>
+      }
+    </ion-list>
+  </div>
+</ion-content>
