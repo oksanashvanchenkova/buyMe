@@ -1,3 +1,15 @@
-<p>
-  <ion-button fill="clear" [routerLink]="['/tabs/catalog', 'books']"><img src="../../../assets/icons/books-icon.png" class="tab-icon" alt="Start" /></ion-button>
-</p>
+<div class="search-block">
+  <ion-searchbar placeholder="Wyszukaj" color="light" (ionInput)="handleInput($event)"></ion-searchbar>
+</div>
+
+<div class="category-block">
+  @for(category of categories; track category.name){
+  <div class="category-block_item">
+    <ion-button fill="clear" [routerLink]="[category.linkData, category.routerData]"><img [src]="category.iconSrc"
+        class="tab-icon" [alt]="category.name" />
+    </ion-button>
+    <ion-label class="category-block_item-label">{{category.name}}</ion-label>
+  </div>
+  }
+</div>
+<div class="publication-block"></div>
