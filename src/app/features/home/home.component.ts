@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { IonButton, IonIcon, IonLabel } from '@ionic/angular/standalone';
 import { ICategory } from './interfaces/category.interface';
 import { CATEGORY_ITEMS } from './consts/category-items';
 import { IonSearchbar } from '@ionic/angular/standalone';
+import { WelcomeComponent } from './components/welcome/welcome.component'
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  imports: [IonButton, IonIcon, RouterLink, IonLabel, IonSearchbar],
+  imports: [IonButton, IonIcon, RouterLink, IonLabel, IonSearchbar, WelcomeComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeComponent implements OnInit {
   categories: ICategory[] = CATEGORY_ITEMS

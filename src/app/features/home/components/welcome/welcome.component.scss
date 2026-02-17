@@ -1,0 +1,26 @@
+:host {
+    display: grid;
+    grid-template-columns: 10rem auto;
+    max-height: 10rem;
+    background-image: linear-gradient(to left, #ffffff, #fffcff, #fff9fa, #fff8f0, #fff9e8);
+}
+
+.welcome-user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #473501;
+}
+
+.welcome-symbol {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-right: 1.5rem;
+
+    img {
+        max-height: 11rem;
+    }
+}
