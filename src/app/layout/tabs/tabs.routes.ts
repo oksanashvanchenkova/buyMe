@@ -20,14 +20,24 @@ export const routes: Routes = [
         loadComponent: () => import('../../features/products-list/products-list.component').then(m => m.ProductsListComponent)
       },
       {
-        path: 'tab2',
+        path: 'category',
         loadComponent: () =>
-          import('../../tab2/tab2.page').then((m) => m.Tab2Page),
+          import('../../features/categories/categories.component').then((m) => m.CategoriesComponent),
       },
       {
-        path: 'tab3',
+        path: 'add',
         loadComponent: () =>
-          import('../../tab3/tab3.page').then((m) => m.Tab3Page),
+          import('../../features/add-item/add-item.component').then((m) => m.AddItemComponent),
+      },
+      {
+        path: 'favorite',
+        loadComponent: () =>
+          import('../../features/favorite/favorite.component').then((m) => m.FavoriteComponent),
+      },
+      {
+        path: 'cart',
+        loadComponent: () =>
+          import('../../features/cart/cart.component').then((m) => m.CartComponent),
       },
       {
         path: '',

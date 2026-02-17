@@ -1,7 +1,7 @@
 <div class="search-block">
-  <ion-searchbar placeholder="Wyszukaj" color="light" (ionInput)="handleInput($event)"></ion-searchbar>
+  <ion-searchbar placeholder="Wyszukaj" (ionInput)="handleInput($event)"></ion-searchbar>
 </div>
-
+<app-welcome></app-welcome>
 <div class="category-block">
   @for(category of categories; track category.name){
   <div class="category-block_item">

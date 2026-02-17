@@ -34,3 +34,14 @@
 
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
+:root {
+    --ion-font-family: 'Inter', sans-serif;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+.ion-page {
+    justify-content: flex-start !important
+}
