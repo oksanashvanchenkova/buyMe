@@ -1,7 +1,3 @@
-<div class="search-block">
-  <ion-searchbar placeholder="Wyszukaj" (ionInput)="handleInput($event)"></ion-searchbar>
-</div>
-<app-welcome></app-welcome>
 <!-- <div class="category-block">
   @for(category of categories; track category.name){
   <div class="category-block_item">
@@ -13,14 +9,18 @@
   }
 </div>
 <div class="publication-block"></div> -->
-<ion-content class="home-content">
 
+<ion-content class="home-content">
+  <div class="search-block">
+    <ion-searchbar animated="true" placeholder="Wyszukaj" (ionInput)="handleInput($event)"></ion-searchbar>
+  </div>
+  <app-welcome></app-welcome>
   <div class="categories-wrapper">
     <ion-grid>
       <ion-row>
         @for(category of categories; track category.name){
-        <ion-col size="6" size-md="4" size-lg="3">
-          <div class="category-card">
+        <ion-col size="4" size-md="4" size-lg="1.5">
+          <div class="category-card" [routerLink]="[category.linkData, category.routerData]">
             <img [src]="category.iconSrc" />
             <span>{{ category.name }}</span>
           </div>

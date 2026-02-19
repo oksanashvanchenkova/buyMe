@@ -1,43 +1,21 @@
-// :host {
-//     overflow-y: auto;
-// }
+.search-block {
+  background-color: rgba(201, 195, 195, 0.247);
 
-// .category-block {
-//     height: 20rem;
-//     display: grid;
-//     grid-auto-flow: column;
-//     grid-template-rows: repeat(2, 1fr);
-//     grid-auto-columns: 140px;
-//     overflow-x: auto;
-//     overflow-y: hidden;
-//     justify-content: center;
-//     align-items: end;
+  ion-searchbar {
+    background-color: transparent !important;
+  }
+}
 
-//     &_item {
-//         display: flex;
-//         flex-direction: column;
-//         justify-content: center;
-//         align-items: center;
+ion-searchbar {
+  @media only screen and (min-width: 992px) {
+    width: 80% !important;
+  }
 
-//         img {
-//             max-width: 8rem;
-//         }
-//     }
-// }
+  @media only screen and (min-width: 600px) {
+    width: 70%;
+  }
+}
 
-// .home-content {
-//   --background: #f6f4f1;
-// }
-
-// .categories-wrapper {
-//   max-width: 1200px;
-//   margin: 0 auto;
-//   padding: 12px;
-// }
-
-// ion-row {
-//   gap: 12px; // рівні відступи між картками
-// }
 
 .category-card {
   background: #ffffff;
@@ -53,8 +31,8 @@
   height: 130px;
 
   box-shadow:
-    0 2px 6px rgba(0,0,0,0.04),
-    0 8px 20px rgba(0,0,0,0.06);
+    0 2px 6px rgba(0, 0, 0, 0.04),
+    0 8px 20px rgba(0, 0, 0, 0.06);
 
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -62,8 +40,8 @@
 .category-card:hover {
   transform: translateY(-3px);
   box-shadow:
-    0 4px 10px rgba(0,0,0,0.06),
-    0 12px 24px rgba(0,0,0,0.08);
+    0 4px 10px rgba(0, 0, 0, 0.06),
+    0 12px 24px rgba(0, 0, 0, 0.08);
 }
 
 .category-card img {
