@@ -1,17 +1,19 @@
 import { ICategory } from "../interfaces/category.interface";
 
 export const CATEGORY_ITEMS: ICategory[] = [
-    {
-        name: 'Książki',
-        iconSrc: '../../../assets/icons/books-icon.png',
-        linkData: '/tabs/catalog',
-        routerData: 'books'
-    },
+
     {
         name: 'Ubrania',
         iconSrc: '../../../assets/icons/clothes.png',
         linkData: '/tabs/catalog',
         routerData: 'clothes'
+    },
+
+    {
+        name: 'Książki',
+        iconSrc: '../../../assets/icons/books-icon.png',
+        linkData: '/tabs/catalog',
+        routerData: 'books'
     },
     {
         name: 'Obuwie',
@@ -20,39 +22,28 @@ export const CATEGORY_ITEMS: ICategory[] = [
         routerData: 'shoes'
     },
     {
-        name: 'Książki',
-        iconSrc: '../../../assets/icons/books-icon.png',
+        name: 'Elektronika',
+        iconSrc: '../../../assets/icons/electronics.png',
         linkData: '/tabs/catalog',
-        routerData: 'books'
+        routerData: 'electronics'
     },
     {
-        name: 'Ubrania',
-        iconSrc: '../../../assets/icons/clothes.png',
+        name: 'Maluchy',
+        iconSrc: '../../../assets/icons/babies.png',
         linkData: '/tabs/catalog',
-        routerData: 'clothes'
+        routerData: 'babies'
     },
     {
-        name: 'Obuwie',
-        iconSrc: '../../../assets/icons/shoes.png',
+        name: 'Sport',
+        iconSrc: '../../../assets/icons/sport.png',
         linkData: '/tabs/catalog',
-        routerData: 'shoes'
+        routerData: 'sport'
     },
-    {
-        name: 'Książki',
-        iconSrc: '../../../assets/icons/books-icon.png',
+        {
+        name: 'Toys',
+        iconSrc: '../../../assets/icons/toys.png',
         linkData: '/tabs/catalog',
-        routerData: 'books'
-    },
-    {
-        name: 'Ubrania',
-        iconSrc: '../../../assets/icons/clothes.png',
-        linkData: '/tabs/catalog',
-        routerData: 'clothes'
-    },
-    {
-        name: 'Obuwie',
-        iconSrc: '../../../assets/icons/shoes.png',
-        linkData: '/tabs/catalog',
-        routerData: 'shoes'
+        routerData: 'toys'
     }
+
 ]

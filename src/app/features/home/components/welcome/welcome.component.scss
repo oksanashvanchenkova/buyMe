@@ -12,15 +12,52 @@
     font-size: 1.2rem;
     font-weight: 500;
     color: #473501;
+    position: relative;
+    min-height: 10rem;
 }
 
 .welcome-symbol {
+    position: absolute;
     display: flex;
     justify-content: end;
     align-items: center;
     margin-right: 1.5rem;
+    left: 60%;
+    z-index: 5;
 
     img {
         max-height: 11rem;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .welcome-user {
+        min-height: 7rem;
+    }
+
+    .welcome-symbol {
+        img {
+            max-height: 9rem;
+        }
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .welcome-user {
+        min-height: 5rem;
+    }
+
+    .welcome-symbol {
+        left: 70%;
+        z-index: 5;
+        top: 0;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .welcome-symbol {
+        left: 80%;
+        z-index: 5;
+        top: 0;
     }
 }
