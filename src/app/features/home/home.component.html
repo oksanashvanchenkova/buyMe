@@ -19,7 +19,7 @@
     <ion-grid>
       <ion-row>
         @for(category of categories; track category.name){
-        <ion-col size="4" size-md="4" size-lg="1.5">
+        <ion-col size="4" size-md="4" size-lg="1">
           <div class="category-card" [routerLink]="[category.linkData, category.routerData]">
             <img [src]="category.iconSrc" />
             <span>{{ category.name }}</span>

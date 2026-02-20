@@ -63,7 +63,7 @@ body {
 
 ion-app.main {
   display: grid;
-  grid-template-columns: 1fr minmax(0, 992px) 1fr;
+  grid-template-columns: 1fr minmax(0, 1440px) 1fr;
   grid-template-rows: 3.5rem auto;
 }
 

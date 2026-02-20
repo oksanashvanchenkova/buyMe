@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { IonButton,  IonLabel, IonContent, IonGrid , IonRow, IonCol} from '@ionic/angular/standalone';
 import { ICategory } from './interfaces/category.interface';
-import { CATEGORY_ITEMS } from './consts/category-items';
+import { CATEGORY_ITEMS } from '../../core/consts/category-items';
 import { IonSearchbar } from '@ionic/angular/standalone';
 import { WelcomeComponent } from './components/welcome/welcome.component'
 
@@ -14,7 +14,8 @@ import { WelcomeComponent } from './components/welcome/welcome.component'
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeComponent implements OnInit {
-  categories: ICategory[] = CATEGORY_ITEMS
+  categories: ICategory[] = CATEGORY_ITEMS;
+
   constructor() { }
 
   ngOnInit() { }
