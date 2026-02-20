@@ -11,7 +11,6 @@ export class ProductsListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.booksHttp.getBooks().subscribe(console.log)
   }
 
 }
