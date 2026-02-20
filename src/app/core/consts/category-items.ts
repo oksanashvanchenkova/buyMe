@@ -1,4 +1,4 @@
-import { ICategory } from "../interfaces/category.interface";
+import { ICategory } from "../../features/home/interfaces/category.interface";
 
 export const CATEGORY_ITEMS: ICategory[] = [
 
@@ -39,11 +39,23 @@ export const CATEGORY_ITEMS: ICategory[] = [
         linkData: '/tabs/catalog',
         routerData: 'sport'
     },
-        {
+    {
         name: 'Toys',
         iconSrc: '../../../assets/icons/toys.png',
         linkData: '/tabs/catalog',
         routerData: 'toys'
+    },
+    {
+        name: 'School',
+        iconSrc: '../../../assets/icons/school.png',
+        linkData: '/tabs/catalog',
+        routerData: 'school'
+    },
+    {
+        name: 'Transport',
+        iconSrc: '../../../assets/icons/transport.png',
+        linkData: '/tabs/catalog',
+        routerData: 'transport'
     }
 
 ]

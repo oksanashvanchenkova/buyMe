@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -8,7 +8,13 @@ import { Observable } from 'rxjs';
 export class BooksHttp {
   private http = inject(HttpClient);
 
-  getBooks(): Observable<any> {
-    return this.http.get<any>('http://192.168.0.205:3000/books')
-  }
+getItem(): Observable<any> {
+  const params = new HttpParams()
+    .set('latest', 'true');
+
+  return this.http.get<any>(
+    'http://192.168.0.205:3000/items',
+    { params }
+  );
+}
 }
