@@ -1,21 +1,23 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { IonButton,  IonLabel, IonContent, IonGrid , IonRow, IonCol} from '@ionic/angular/standalone';
-import { ICategory } from './interfaces/category.interface';
-import { CATEGORY_ITEMS } from '../../core/consts/category-items';
+import { IonButton, IonLabel, IonContent, IonGrid, IonRow, IonCol } from '@ionic/angular/standalone';
 import { IonSearchbar } from '@ionic/angular/standalone';
 import { WelcomeComponent } from './components/welcome/welcome.component'
+import { HomeStore } from './store/home.store';
+import { ProductsListComponent } from 'src/app/shared/products-list/products-list.component';
+import { LoaderSkeletonComponent } from 'src/app/shared/loader-skeleton/loader-skeleton.component';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  imports: [IonButton,RouterLink, IonLabel, IonSearchbar, WelcomeComponent, IonContent, IonGrid , IonRow,  IonCol],
+  imports: [IonButton, RouterLink, IonLabel, IonSearchbar, WelcomeComponent, IonContent, IonGrid, IonRow, IonCol,
+    LoaderSkeletonComponent,
+    ProductsListComponent],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeComponent implements OnInit {
-  categories: ICategory[] = CATEGORY_ITEMS;
-
+  store = inject(HomeStore)
   constructor() { }
 
   ngOnInit() { }

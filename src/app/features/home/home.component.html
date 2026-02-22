@@ -15,10 +15,11 @@
     <ion-searchbar animated="true" placeholder="Wyszukaj" (ionInput)="handleInput($event)"></ion-searchbar>
   </div>
   <app-welcome></app-welcome>
+
   <div class="categories-wrapper">
     <ion-grid>
       <ion-row>
-        @for(category of categories; track category.name){
+        @for(category of store.categories(); track category.name){
         <ion-col size="4" size-md="4" size-lg="1">
           <div class="category-card" [routerLink]="[category.linkData, category.routerData]">
             <img [src]="category.iconSrc" />
@@ -31,5 +32,9 @@
       </ion-row>
     </ion-grid>
   </div>
-
+  @if(store.isBusy()){
+  <app-loader-skeleton></app-loader-skeleton>
+  }@else{
+  <app-products-list [productItems]="store.productItems()"></app-products-list>
+  }
 </ion-content>

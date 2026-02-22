@@ -17,7 +17,7 @@ export const routes: Routes = [
       },
       {
         path: 'products-list/:category/:type',
-        loadComponent: () => import('../../features/products-list/products-list.component').then(m => m.ProductsListComponent)
+        loadComponent: () => import('../../shared/products-list/products-list.component').then(m => m.ProductsListComponent)
       },
       {
         path: 'category',
