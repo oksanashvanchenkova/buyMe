@@ -23,8 +23,8 @@ export const HomeStore = signalStore(
             patchState(store, setBusy(false), setProductItems(items))
         }
     })),
-    withHooks((store) => ({
-        onInit: () => {
+    withHooks((store)=>({
+        onInit:()=>{
             store._initiateProducts()
         }
     }))

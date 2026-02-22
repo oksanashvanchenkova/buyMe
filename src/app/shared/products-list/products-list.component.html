@@ -1,27 +1,31 @@
-<ion-list>
-  @for(item of productItems(); track item.id) {
-    <ion-item lines="full" class="product-item">
-      
-      <ion-thumbnail slot="start">
-        <img [src]="'http://192.168.0.205:3000/' + item.image" [alt]="item.title" />
-      </ion-thumbnail>
+<ion-grid class="products-grid">
+  <ion-row>
+    @for (item of productItems(); track item.id) {
 
-      <ion-label class="ion-text-wrap">
-        <h2 class="product-title">{{ item.title }}</h2>
-        <p class="product-description">{{ item.description }}</p>
-        
-        <div class="product-info ion-margin-top">
-          <ion-badge color="light" mode="ios">{{ item.item_condition }}</ion-badge>
-          <ion-text color="primary">
-            <h3 class="product-price">{{ item.price }} zł</h3>
-          </ion-text>
+    <ion-col size="6" size-md="4" size-lg="3">
+      <div class="product-card">
+        <div class="image-wrapper">
+          <img [src]="'http://192.168.0.205:3000/' + item.image" [alt]="item.title" />
+
+          <button class="favorite-btn" (click)="onFavoriteClick(item)"   [class.active]="favoriteIds().has(item.id)">
+            <ion-icon [name]="favoriteIds().has(item.id) ? 'heart' : 'heart-outline'">
+            </ion-icon>
+          </button>
         </div>
-      </ion-label>
+        <div class="card-body">
 
-      <ion-button slot="end" fill="clear" (click)="addToCart(item)">
-        <ion-icon slot="icon-only" name="cart-outline"></ion-icon>
-      </ion-button>
-
-    </ion-item>
-  }
-</ion-list>
+          <div class="product-title">
+            {{ item.title }}
+          </div>
+          <div class="product-price">
+            {{ item.price }} zł
+          </div>
+          <button class="cart-btn" (click)="onCartClick(item)">
+            <ion-icon name="cart-outline"></ion-icon>
+          </button>
+        </div>
+      </div>
+    </ion-col>
+    }
+  </ion-row>
+</ion-grid>
