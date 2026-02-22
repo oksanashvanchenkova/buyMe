@@ -1,0 +1,9 @@
+<ion-list lines="none">
+  @for(item of items(); track item){
+  <ion-item>
+    <ion-skeleton-text [animated]="true" [style.height]="height() + 'px'" [style.width]="width() + '%'">
+    </ion-skeleton-text>
+  </ion-item>
+  }
+
+</ion-list>

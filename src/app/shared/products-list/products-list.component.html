@@ -1,0 +1,27 @@
+<ion-list>
+  @for(item of productItems(); track item.id) {
+    <ion-item lines="full" class="product-item">
+      
+      <ion-thumbnail slot="start">
+        <img [src]="'http://192.168.0.205:3000/' + item.image" [alt]="item.title" />
+      </ion-thumbnail>
+
+      <ion-label class="ion-text-wrap">
+        <h2 class="product-title">{{ item.title }}</h2>
+        <p class="product-description">{{ item.description }}</p>
+        
+        <div class="product-info ion-margin-top">
+          <ion-badge color="light" mode="ios">{{ item.item_condition }}</ion-badge>
+          <ion-text color="primary">
+            <h3 class="product-price">{{ item.price }} zł</h3>
+          </ion-text>
+        </div>
+      </ion-label>
+
+      <ion-button slot="end" fill="clear" (click)="addToCart(item)">
+        <ion-icon slot="icon-only" name="cart-outline"></ion-icon>
+      </ion-button>
+
+    </ion-item>
+  }
+</ion-list>
