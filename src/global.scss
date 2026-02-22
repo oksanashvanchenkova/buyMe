@@ -51,7 +51,17 @@
 :root {
     --ion-font-family: 'Inter', sans-serif;
 }
+// html, body {
+//   overflow-y: scroll;
+// }
 
+// ion-app, ion-content {
+//   height: auto !important;
+// }
+
+// ion-content::part(scroll) {
+//   overflow: visible !important;
+// }
 body {
     font-family: 'Inter', sans-serif;
     background-color: rgba(201, 195, 195, 0.192);

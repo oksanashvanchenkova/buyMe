@@ -11,7 +11,7 @@ import { LoaderSkeletonComponent } from 'src/app/shared/loader-skeleton/loader-s
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  imports: [IonButton, RouterLink, IonLabel, IonSearchbar, WelcomeComponent, IonContent, IonGrid, IonRow, IonCol,
+  imports: [ RouterLink, IonSearchbar, WelcomeComponent, IonContent, IonGrid, IonRow, IonCol,
     LoaderSkeletonComponent,
     ProductsListComponent],
   changeDetection: ChangeDetectionStrategy.OnPush

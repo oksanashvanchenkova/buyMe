@@ -1,9 +1,41 @@
-<ion-list lines="none">
-  @for(item of items(); track item){
-  <ion-item>
-    <ion-skeleton-text [animated]="true" [style.height]="height() + 'px'" [style.width]="width() + '%'">
-    </ion-skeleton-text>
-  </ion-item>
-  }
+<ion-grid class="products-grid">
+  <ion-row>
 
-</ion-list>
+    @for (item of items(); track item) {
+
+    <ion-col size="6" size-md="4" size-lg="3">
+
+      <div class="product-card skeleton-card">
+        <div class="image-wrapper">
+
+          <ion-skeleton-text animated class="image-skeleton">
+          </ion-skeleton-text>
+          <ion-skeleton-text animated class="heart-skeleton">
+          </ion-skeleton-text>
+
+        </div>
+        <div class="card-body">
+
+          <ion-skeleton-text animated class="title-line-1">
+          </ion-skeleton-text>
+
+          <ion-skeleton-text animated class="title-line-2">
+          </ion-skeleton-text>
+
+          <ion-skeleton-text animated class="meta-line">
+          </ion-skeleton-text>
+
+          <ion-skeleton-text animated class="price-line">
+          </ion-skeleton-text>
+          <ion-skeleton-text animated class="cart-skeleton">
+          </ion-skeleton-text>
+
+        </div>
+
+      </div>
+
+    </ion-col>
+    }
+
+  </ion-row>
+</ion-grid>

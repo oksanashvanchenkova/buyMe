@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import {
-  IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonLabel, IonButton, IonMenu,
-  IonMenuButton, IonIcon
+  IonHeader, IonToolbar, IonButtons, IonButton,
+  IonIcon
 } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { personCircle } from 'ionicons/icons';
@@ -11,9 +11,8 @@ import { personCircle } from 'ionicons/icons';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonLabel, IonButton, IonButtons,
-    IonMenu,
-    IonMenuButton, IonIcon
+  imports: [IonHeader, IonToolbar, IonButtons, IonButton, IonButtons,
+    IonIcon
   ]
 })
 export class HeaderComponent implements OnInit {

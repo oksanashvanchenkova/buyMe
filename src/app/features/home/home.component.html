@@ -33,8 +33,8 @@
     </ion-grid>
   </div>
   @if(store.isBusy()){
-  <app-loader-skeleton></app-loader-skeleton>
-  }@else{
-  <app-products-list [productItems]="store.productItems()"></app-products-list>
-  }
+  <app-loader-skeleton [skeletonAmount]="4" [height]="300" [width]="48"></app-loader-skeleton>
+    }@else{
+    <app-products-list [productItems]="store.productItems()"></app-products-list>
+    }
 </ion-content>

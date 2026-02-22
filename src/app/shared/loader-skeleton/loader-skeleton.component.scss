@@ -1,0 +1,72 @@
+.skeleton-card {
+  background: #f6f2ed;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #ffffff;
+}
+
+.image-skeleton {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+}
+
+.heart-skeleton {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+}
+
+.card-body {
+  padding: 10px 12px 14px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+}
+
+.title-line-1 {
+  width: 100%;
+  height: 14px;
+  border-radius: 6px;
+}
+
+.title-line-2 {
+  width: 70%;
+  height: 14px;
+  border-radius: 6px;
+}
+
+.meta-line {
+  width: 50%;
+  height: 12px;
+  border-radius: 6px;
+}
+
+.price-line {
+  width: 40%;
+  height: 16px;
+  border-radius: 6px;
+  margin-top: 4px;
+}
+
+.cart-skeleton {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+}
