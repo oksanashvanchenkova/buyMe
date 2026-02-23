@@ -1,4 +1,4 @@
-import { Item } from "src/app/core/interfaces/books.interfaces";
+import { Item } from "src/app/core/interfaces/item.interfaces"
 import { ALL_ITEMS } from "../consts/all-items";
 
 export interface HomeVm {

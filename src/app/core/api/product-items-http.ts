@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Item } from '../interfaces/books.interfaces';
+import { IItemsDto, Item } from '../interfaces/item.interfaces';
 
 @Injectable({
   providedIn: 'root',
@@ -9,11 +9,14 @@ import { Item } from '../interfaces/books.interfaces';
 export class ProductItemsHttp {
   private http = inject(HttpClient);
 
-  getItem(): Observable<Item[]> {
+  getItem(page: number, limit: number): Observable<IItemsDto> {
     const params = new HttpParams()
-      .set('latest', 'true');
+      .set('latest', 'true')
+      .set('limit', limit)
+      .set('page', page)
+      ;
 
-    return this.http.get<Item[]>(
+    return this.http.get<IItemsDto>(
       'http://192.168.0.205:3000/items',
       { params }
     );

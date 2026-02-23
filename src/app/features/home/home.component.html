@@ -1,15 +1,3 @@
-<!-- <div class="category-block">
-  @for(category of categories; track category.name){
-  <div class="category-block_item">
-    <ion-button fill="clear" [routerLink]="[category.linkData, category.routerData]"><img [src]="category.iconSrc"
-        class="tab-icon" [alt]="category.name" />
-    </ion-button>
-    <ion-label class="category-block_item-label">{{category.name}}</ion-label>
-  </div>
-  }
-</div>
-<div class="publication-block"></div> -->
-
 <ion-content class="home-content">
   <div class="search-block">
     <ion-searchbar animated="true" placeholder="Wyszukaj" (ionInput)="handleInput($event)"></ion-searchbar>
@@ -26,15 +14,28 @@
             <span>{{ category.name }}</span>
           </div>
         </ion-col>
-
         }
-
       </ion-row>
     </ion-grid>
   </div>
   @if(store.isBusy()){
   <app-loader-skeleton [skeletonAmount]="4" [height]="300" [width]="48"></app-loader-skeleton>
-    }@else{
-    <app-products-list [productItems]="store.productItems()"></app-products-list>
-    }
+  }@else{
+  <app-products-list [productItems]="store.productItems()"></app-products-list>
+
+  <ion-infinite-scroll (ionInfinite)="loadMore($event)" [disabled]="!store.hasMore()">
+    <ion-infinite-scroll-content loadingSpinner="crescent" loadingText="Завантаження...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+  }
+  @if(!store.hasMore() && (store.productItems()?.length || 0) > 0) {
+  <div class="ion-padding ion-text-center no-items-block" style="color: gray;">
+
+    <div>
+      <img src="../../../assets/icons/baybabybear.png">
+          <small>To wszystko na dzisiaj</small>
+    </div>
+  </div>
+  }
+
 </ion-content>
