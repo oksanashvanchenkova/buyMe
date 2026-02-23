@@ -1,4 +1,4 @@
-import { Item } from "src/app/core/interfaces/books.interfaces";
+import { Item } from "src/app/core/interfaces/item.interfaces";
 
 export const ALL_ITEMS:Item[] = [
     {

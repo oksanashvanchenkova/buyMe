@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, input, OnInit, signal } from '@angular/core';
 import { IonIcon, IonCol, IonGrid, IonRow } from '@ionic/angular/standalone';
-import { Item } from 'src/app/core/interfaces/books.interfaces';
+import { Item } from 'src/app/core/interfaces/item.interfaces';
 import { addIcons } from 'ionicons';
 import { heartOutline, cartOutline, heart } from 'ionicons/icons';
 
