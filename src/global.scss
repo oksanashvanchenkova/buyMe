@@ -1,67 +1,22 @@
-/*
- * App Global CSS
- * ----------------------------------------------------------------------------
- * Put style rules here that you want to apply globally. These styles are for
- * the entire app and not just one component. Additionally, this file can be
- * used as an entry point to import other CSS/Sass files to be included in the
- * output CSS.
- * For more information on global stylesheets, visit the documentation:
- * https://ionicframework.com/docs/layout/global-stylesheets
- */
-
-/* Core CSS required for Ionic components to work properly */
 @import "@ionic/angular/css/core.css";
 
-/* Basic CSS for apps built with Ionic */
 @import "@ionic/angular/css/normalize.css";
 @import "@ionic/angular/css/structure.css";
 @import "@ionic/angular/css/typography.css";
 @import "@ionic/angular/css/display.css";
 
-/* Optional CSS utils that can be commented out */
+
 @import "@ionic/angular/css/padding.css";
 @import "@ionic/angular/css/float-elements.css";
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 
-/**
- * Ionic Dark Mode
- * -----------------------------------------------------
- * For more info, please see:
- * https://ionicframework.com/docs/theming/dark-mode
- */
 
-/* @import "@ionic/angular/css/palettes/dark.always.css"; */
-/* @import "@ionic/angular/css/palettes/dark.class.css"; */
-
-// @media only screen and (max-width: 600px) {...}
-
-/* Small devices (portrait tablets and large phones, 600px and up) */
-// @media only screen and (min-width: 600px) {...}
-
-/* Medium devices (landscape tablets, 768px and up) */
-// @media only screen and (min-width: 768px) {...}
-
-/* Large devices (laptops/desktops, 992px and up) */
-// @media only screen and (min-width: 992px) {...}
-
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-// @media only screen and (min-width: 1200px) {...}
 :root {
     --ion-font-family: 'Inter', sans-serif;
 }
-// html, body {
-//   overflow-y: scroll;
-// }
 
-// ion-app, ion-content {
-//   height: auto !important;
-// }
-
-// ion-content::part(scroll) {
-//   overflow: visible !important;
-// }
 body {
     font-family: 'Inter', sans-serif;
     background-color: rgba(201, 195, 195, 0.192);
@@ -72,34 +27,36 @@ body {
 }
 
 ion-app.main {
-  display: grid;
-  grid-template-columns: 1fr minmax(0, 1440px) 1fr;
-  grid-template-rows: 3.5rem auto;
+    display: grid;
+    grid-template-columns: 1fr minmax(0, 1440px) 1fr;
+    grid-template-rows: 3.5rem auto;
 }
 
-// ion-app.main {
-//     display: grid;
-//     grid-template-columns: 1fr 8fr 1fr;
-//     grid-template-rows: 3.5rem auto;
+ion-content {
+    --background: transparent;
 
-//     @media only screen and (max-width: 1200px) {
-//         grid-template-columns: 1fr 10fr 1fr !important;
+    &::part(scroll) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
 
-//     }
+.page-wrapper {
+    width: 100%;
+    max-width: 1440px;
+    background: white;
+    margin: 0 auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    position: relative;
 
-//     @media only screen and (max-width: 992px) {
-//         grid-template-columns: 1fr 16fr 1fr !important;
-//     }
-
-//     @media only screen and (max-width: 768px) {
-//         grid-template-columns: 1fr 1000fr 1fr !important;
-//     }
-// }
+}
 
 app-header.header {
     grid-row: 1;
     grid-column: 1 / 4;
-    // background-image: linear-gradient(to left, #ffffff, #fffcff, #fff9fa, #fff8f0, #fff9e8) !important;
 }
 
 

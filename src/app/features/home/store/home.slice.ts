@@ -1,5 +1,4 @@
 import { Item } from "src/app/core/interfaces/item.interfaces"
-import { ALL_ITEMS } from "../consts/all-items";
 import { ICategory } from "../interfaces/category.interface";
 import { CATEGORY_ITEMS } from "src/app/core/consts/category-items";
 

@@ -65,3 +65,9 @@ ion-searchbar {
     width: 15rem;
   }
 }
+
+.categories-wrapper {
+  @media only screen and (min-width: 1200px) {
+    background-image: linear-gradient(to left, #ffffff, #fff5f7, #fef5e7, #fdf8ef, #fdf5e0);
+  }
+}
