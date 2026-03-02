@@ -39,16 +39,6 @@ export const routes: Routes = [
         loadComponent: () =>
           import('../../features/cart/cart.component').then((m) => m.CartComponent),
       },
-      {
-        path: '',
-        redirectTo: '/home',
-        pathMatch: 'full',
-      },
     ],
-  },
-  {
-    path: '',
-    redirectTo: '/home',
-    pathMatch: 'full',
   },
 ];

@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, EnvironmentInjector, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EnvironmentInjector, inject, Injector } from '@angular/core';
+import { Router } from '@angular/router';
 import { IonTabs, IonTabBar, IonTabButton, } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { triangle, ellipse, square } from 'ionicons/icons';
@@ -12,8 +13,20 @@ import { triangle, ellipse, square } from 'ionicons/icons';
 })
 export class TabsPage {
   public environmentInjector = inject(EnvironmentInjector);
-
+  private readonly router = inject(Router);
   constructor() {
     addIcons({ triangle, ellipse, square });
+  }
+  handleTabClick(event: any) {
+
+    const user = sessionStorage.getItem('USER');
+    console.log(user)
+    if (user) {
+      console.log(event)
+      this.router.navigate(['/add'])
+    } else {
+      console.log(event)
+      this.router.navigate(['/login'])
+    }
   }
 }

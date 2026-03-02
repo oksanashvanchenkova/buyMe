@@ -1,0 +1,25 @@
+:root {
+
+  /* PRIMARY */
+  --ion-color-primary: var(--brand-primary);
+  --ion-color-primary-shade: var(--brand-primary-shade);
+  --ion-color-primary-tint: var(--brand-primary-tint);
+  --ion-color-primary-contrast: var(--brand-text-inverse);
+
+  /* SUCCESS */
+  --ion-color-success: var(--brand-success);
+  --ion-color-success-contrast: var(--brand-text-inverse);
+
+  /* WARNING */
+  --ion-color-warning: var(--brand-warning);
+
+  /* DANGER */
+  --ion-color-danger: var(--brand-danger);
+
+  /* BACKGROUND */
+  --ion-background-color: var(--brand-bg-main);
+  --ion-card-background: var(--brand-bg-card);
+
+  /* TEXT */
+  --ion-text-color: var(--brand-text-primary);
+}
