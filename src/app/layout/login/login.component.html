@@ -1,25 +1,16 @@
 <ion-content class="home-content">
   <div class="page-wrapper">
-    <div class="login-content">
+    @if(!showRegistration()){
+    <app-login-view class="login-view" (onLoginSubmit)="loginSubmit($event)"
+      (onShowRegistration)="showRegistration.set(true)"></app-login-view>
+    }@else{
 
-      <ion-list>
-        <ion-item>
-          <ion-input label="Login" placeholder="Enter text"></ion-input>
-        </ion-item>
+    <app-registration-view>
 
-        <ion-item>
-          <ion-input
-            label="Password"
-            type="password"
-            value="password">
-          </ion-input>
-        </ion-item>
-      </ion-list>
+    </app-registration-view>
+    }
 
-      <ion-button expand="block">
-        Block
-      </ion-button>
 
-    </div>
   </div>
+
 </ion-content>
