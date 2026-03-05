@@ -1,0 +1,26 @@
+<form [formGroup]="loginForm">
+  <div class="login-content">
+
+    <ion-list>
+      <ion-item>
+        <ion-input label="Login" placeholder="Email" type="email" formControlName="email">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input label="Password" type="password" formControlName="password">
+        </ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-button expand="block" (click)="login()" [disabled]="loginForm.invalid">
+      Zaloguj
+    </ion-button>
+
+    <ion-button expand="block" fill="outline" (click)="onShowRegistration.emit()">
+      Zarejestruj
+    </ion-button>
+
+  </div>
+
+</form>
