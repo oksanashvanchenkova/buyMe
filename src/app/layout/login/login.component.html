@@ -5,7 +5,7 @@
       (onShowRegistration)="showRegistration.set(true)"></app-login-view>
     }@else{
 
-    <app-registration-view>
+    <app-registration-view (onSubmitRegistrationData)="submitRegistrationData($event)">
 
     </app-registration-view>
     }
