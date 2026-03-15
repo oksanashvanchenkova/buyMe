@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject, OnInit, output } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { IonInput, IonItem, IonList, IonButton } from '@ionic/angular/standalone';
 import { IUserRegistration } from 'src/app/core/interfaces/auth.interfaces';
 
@@ -25,7 +25,6 @@ export class RegistrationViewComponent {
     this.registrationForm.valueChanges.subscribe(console.log)
   }
   registrationSubmit() {
-    console.log(this.registrationForm.value);
     const data = this.registrationForm.value as IUserRegistration
     this.onSubmitRegistrationData.emit(data)
   }

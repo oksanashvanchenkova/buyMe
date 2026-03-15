@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, inject, output } from '@angular/cor
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { IonContent, IonInput, IonItem, IonList, IonButton } from '@ionic/angular/standalone';
 import { LoginData } from '../../models/login-data';
+import { AuthStore } from 'src/app/core/auth/store/auth.store';
 
 @Component({
   selector: 'app-login-view',
@@ -15,6 +16,7 @@ export class LoginViewComponent {
   onShowRegistration = output()
   loginForm: FormGroup;
   private readonly fb = inject(FormBuilder);
+  private readonly authStore = inject(AuthStore)
 
   constructor() {
     this.loginForm = this.fb.group({
@@ -25,7 +27,8 @@ export class LoginViewComponent {
 
   login() {
     if (this.loginForm.valid) {
-      this.onLoginSubmit.emit(this.loginForm.value);
+      // this.onLoginSubmit.emit(this.loginForm.value);
+      this.authStore.login(this.loginForm.value)
     }
   }
 

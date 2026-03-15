@@ -5,7 +5,6 @@ import {
 import { LoginViewComponent } from './components/login-view/login-view.component'
 import { LoginData } from './models/login-data';
 import { RegistrationViewComponent } from './components/registration-view/registration-view.component'
-import { Login } from './services/login';
 import { IUserRegistration } from 'src/app/core/interfaces/auth.interfaces';
 
 
@@ -14,13 +13,10 @@ import { IUserRegistration } from 'src/app/core/interfaces/auth.interfaces';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
-  imports: [IonContent, IonInput, IonItem, IonList, IonButton, LoginViewComponent, RegistrationViewComponent],
-  providers: [Login],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent implements OnInit {
   showRegistration = signal<boolean>(false);
-  private readonly login = inject(Login)
   constructor() { }
 
   ngOnInit() { }
@@ -28,7 +24,7 @@ export class LoginComponent implements OnInit {
     console.log(event)
   }
   submitRegistrationData(data: IUserRegistration) {
-    this.login.registreteUser(data)
+
   }
   registr() {
     this.showRegistration.set(true)
