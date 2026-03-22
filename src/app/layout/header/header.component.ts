@@ -16,10 +16,14 @@ import { personCircle } from 'ionicons/icons';
   ]
 })
 export class HeaderComponent implements OnInit {
+  
   constructor() {
     addIcons({ personCircle });
   }
 
   ngOnInit() { }
+  goToLogin(){
+
+  }
 
 }

@@ -1,7 +1,8 @@
 import { ChangeDetectionStrategy, Component, inject, OnInit, output } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { IonInput, IonItem, IonList, IonButton } from '@ionic/angular/standalone';
 import { IUserRegistration } from 'src/app/core/interfaces/auth.interfaces';
+import { LoginStore } from '../../store/login.store';
 
 @Component({
   selector: 'app-registration-view',
@@ -12,21 +13,21 @@ import { IUserRegistration } from 'src/app/core/interfaces/auth.interfaces';
 })
 export class RegistrationViewComponent {
   registrationForm = new FormGroup({
-    first_name: new FormControl('', [Validators.required]),
-    last_name: new FormControl('', [Validators.required]),
-    username: new FormControl('', [Validators.required]),
-    phone_number: new FormControl('', [Validators.required]),
+    firstName: new FormControl('', [Validators.required]),
+    lastName: new FormControl('', [Validators.required]),
+    phoneNumber: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required]),
-    confirm_password: new FormControl('', [Validators.required]),
+    confirmPassword: new FormControl('', [Validators.required]),
   })
-  onSubmitRegistrationData = output<IUserRegistration>()
+
+  private readonly store = inject(LoginStore)
   ngOnInit() {
+    this.store.logout()
     this.registrationForm.valueChanges.subscribe(console.log)
   }
   registrationSubmit() {
-    console.log(this.registrationForm.value);
-    const data = this.registrationForm.value as IUserRegistration
-    this.onSubmitRegistrationData.emit(data)
+    const data = this.registrationForm.value as IUserRegistration;
+    this.store.registerUser(data)
   }
 }

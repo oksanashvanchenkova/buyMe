@@ -1,2 +1,2 @@
-@import "./brand.tokens.scss";
-@import "./ionic.mapping.scss";
+@use "./brand.tokens.scss" as *;
+@use "./ionic.mapping.scss" as *;
