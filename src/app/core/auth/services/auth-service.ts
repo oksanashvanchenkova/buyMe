@@ -13,7 +13,7 @@ export class AuthService {
     return this.http.post<IUserRegistration>(`http://192.168.0.205:3000/auth/signup`, userData);
   }
 
-  loginByCredentials(cred: ICredentials): Observable<IUserData> {
-    return this.http.post<IUserData>('http://192.168.0.205:3000/auth/login', cred);
+  loginByCredentials(cred: ICredentials): Observable<{ accessToken: string }> {
+    return this.http.post<{ accessToken: string }>('http://192.168.0.205:3000/auth/login', cred);
   }
 }

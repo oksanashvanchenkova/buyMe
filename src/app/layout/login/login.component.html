@@ -1,16 +1,15 @@
 <ion-content class="home-content">
   <div class="page-wrapper">
-    @if(!showRegistration()){
-    <app-login-view class="login-view" (onLoginSubmit)="loginSubmit($event)"
-      (onShowRegistration)="showRegistration.set(true)"></app-login-view>
-    }@else{
+    {{showRegistr() }}
+    <ion-button expand="block" fill="outline" (click)="showRegistration()">
+      Zarejestruj
+    </ion-button>
+    @if (!showRegistr()){
 
-    <app-registration-view (onSubmitRegistrationData)="submitRegistrationData($event)">
-
-    </app-registration-view>
+    <app-login-view class="login-view"></app-login-view>
+    } @else {
+    <app-registration-view></app-registration-view>
     }
 
-
   </div>
-
 </ion-content>
