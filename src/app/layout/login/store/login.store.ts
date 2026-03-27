@@ -1,5 +1,5 @@
 import { inject } from '@angular/core';
-import { patchState, signalStore, withMethods, withProps, withState } from '@ngrx/signals';
+import { patchState, signalStore, withHooks, withMethods, withProps, withState } from '@ngrx/signals';
 import { rxMethod } from '@ngrx/signals/rxjs-interop';
 import { pipe, switchMap, tap, catchError, of, exhaustMap } from 'rxjs';
 import { jwtDecode } from 'jwt-decode';
@@ -8,7 +8,7 @@ import { ICredentials, IUserRegistration } from 'src/app/core/interfaces/auth.in
 import { AuthService } from 'src/app/core/auth/services/auth-service';
 import { IUserTokenData } from '../models/user.data.model';
 import { Router } from '@angular/router';
-import { setLoginError, setLoginSuccess, setPending, setRegistrationSuccess } from './login.updaters';
+import { setLoginError, setLoginSuccess, setPending, setRegistrationSuccess, setShowRegistration } from './login.updaters';
 
 export const LoginStore = signalStore(
     { providedIn: 'root' },
@@ -41,17 +41,35 @@ export const LoginStore = signalStore(
                 )
             )
         ),
+        loginByGoogle: rxMethod<void>(
+            pipe(
+                tap(() => patchState(store, setPending(true))),
+                exhaustMap(() =>
+                    store._authService.loginWithGoogle().pipe(
+                        tap((response) => {
+                            const token = response.accessToken;
+                            const decodedUser = jwtDecode<IUserTokenData>(token);
 
+                            sessionStorage.setItem('accessToken', token);
+
+                            patchState(store, setLoginSuccess(token, decodedUser));
+                            store._router.navigate(['/home']);
+                        }),
+                        catchError((error) => {
+                            patchState(store, setLoginError());
+                            return of(error);
+                        })
+                    )
+                )
+            )
+        ),
         logout() {
             sessionStorage.removeItem('accessToken');
             patchState(store, initialLoginSlice);
             store._router.navigate(['/login']);
         },
         openRegistration(show: boolean) {
-            patchState(store, (state) => ({
-                ...state,
-                showRegistr: show
-            }));
+            patchState(store, setShowRegistration(show));
         },
         registerUser: rxMethod<IUserRegistration>(
             pipe(
@@ -73,5 +91,10 @@ export const LoginStore = signalStore(
         ),
     }
     )
-    )
+    ),
+    withHooks({
+        onInit(store) {
+            console.log('LoginStore initialized! ID:', Math.random());
+        }
+    })
 )

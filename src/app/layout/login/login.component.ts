@@ -1,11 +1,9 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, computed, inject, NgZone, OnInit, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, effect, inject, signal } from '@angular/core';
 import {
-  IonContent, IonInput, IonItem, IonList, IonButton
+  IonContent, IonButton
 } from '@ionic/angular/standalone';
 import { LoginViewComponent } from './components/login-view/login-view.component'
-import { LoginData } from './models/login-data';
 import { RegistrationViewComponent } from './components/registration-view/registration-view.component'
-import { IUserRegistration } from 'src/app/core/interfaces/auth.interfaces';
 import { LoginStore } from './store/login.store';
 
 
@@ -18,13 +16,22 @@ import { LoginStore } from './store/login.store';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent {
-  readonly store = inject(LoginStore);
-readonly showRegistr = this.store.showRegistr;
-  constructor(private zone: NgZone) {}
-
+  showRegistr = signal<boolean>(false)
+  store = inject(LoginStore);
   showRegistration() {
-    this.zone.run(() => {
-      this.store.openRegistration(true);
-    });
+    this.showRegistr.set(true);
+    this.store.openRegistration(true)
+  }
+  hideRegistration() {
+    this.showRegistr.set(false);
+    this.store.openRegistration(false)
+  }
+  constructor() {
+  }
+  ngOnInit() {
+    this.store.openRegistration(false)
+    setTimeout(() => {
+      this.store.openRegistration(true)
+    }, 3000)
   }
 }
