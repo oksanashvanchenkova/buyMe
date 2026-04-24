@@ -23,7 +23,7 @@ export class AuthService {
     console.log('--- Sending token to backend ---');
 
     return this.http.post(
-      'https://int-poems-anywhere-picks.trycloudflare.com/auth/google',
+      'https://tattoo-gbp-suffered-pillow.trycloudflare.com/auth/google',
       { idToken }
     );
   }

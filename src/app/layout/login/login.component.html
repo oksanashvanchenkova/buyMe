@@ -1,16 +1,23 @@
 <ion-content class="home-content">
-
   <div class="page-wrapper">
-    <div id="google-signin-button"></div>
-    @if(store.isPending()){
-    <div style="background-color: red;height: 3rem;width: 100%;">Pending...</div>
-    }
-    @if(showRegistr()){
-    <app-registration-view (onHideRegistration)="hideRegistration()"></app-registration-view>
+    <div class="goosle-login-wrapper">
+      <div id="google-signin-button"></div>
+    </div>
 
+    @if (store.isPending()) {
+      <div style="background-color: red; height: 3rem; width: 100%">
+        Pending...
+      </div>
+    }
+    @if (showRegistr()) {
+      <app-registration-view
+        (onHideRegistration)="hideRegistration()"
+      ></app-registration-view>
     } @else {
-    <app-login-view class="login-view" (onShowRegistration)="showRegistration()"></app-login-view>
+      <app-login-view
+        class="login-view"
+        (onShowRegistration)="showRegistration()"
+      ></app-login-view>
     }
-
   </div>
 </ion-content>
