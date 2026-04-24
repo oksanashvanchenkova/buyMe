@@ -12,17 +12,18 @@ import { Capacitor } from '@capacitor/core';
 export class AppComponent {
   constructor() { }
   ngOnInit() {
-    this.initializeGoogleAuth();
+    // this.initializeGoogleAuth();
     // console.log(window.google);
   }
 
+
   private initializeGoogleAuth() {
     // Ініціалізуємо лише якщо це браузер (Web)
- if (Capacitor.getPlatform() === 'web') {
+    if (Capacitor.getPlatform() === 'web') {
       GoogleAuth.initialize({
         clientId: '1094302961148-8vqebc8n688s4gop3kbgvh7e2gdgkcbd.apps.googleusercontent.com',
         scopes: ['profile', 'email'],
-        grantOfflineAccess: true,
+        grantOfflineAccess: true, // для refresh_token
       });
       console.log('Google Auth initialized for Web');
     }

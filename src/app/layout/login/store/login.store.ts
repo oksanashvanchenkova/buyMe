@@ -31,7 +31,7 @@ export const LoginStore = signalStore(
                             sessionStorage.setItem('accessToken', token);
 
                             patchState(store, setLoginSuccess(token, decodedUser));
-                            store._router.navigate(['/home']);
+                            store._router.navigate(['tabs/home']);
                         }),
                         catchError((error) => {
                             patchState(store, setLoginError());
@@ -41,11 +41,11 @@ export const LoginStore = signalStore(
                 )
             )
         ),
-        loginByGoogle: rxMethod<void>(
+        loginByGoogle: rxMethod<string>(
             pipe(
                 tap(() => patchState(store, setPending(true))),
-                exhaustMap(() =>
-                    store._authService.loginWithGoogle().pipe(
+                exhaustMap((idToken:string) =>
+                    store._authService.sendTokenToBackend(idToken).pipe(
                         tap((response) => {
                             const token = response.accessToken;
                             const decodedUser = jwtDecode<IUserTokenData>(token);
@@ -53,7 +53,7 @@ export const LoginStore = signalStore(
                             sessionStorage.setItem('accessToken', token);
 
                             patchState(store, setLoginSuccess(token, decodedUser));
-                            store._router.navigate(['/home']);
+                            store._router.navigate(['/tabs/home']);
                         }),
                         catchError((error) => {
                             patchState(store, setLoginError());
@@ -89,8 +89,7 @@ export const LoginStore = signalStore(
                 )
             )
         ),
-    }
-    )
+    })
     ),
     withHooks({
         onInit(store) {
