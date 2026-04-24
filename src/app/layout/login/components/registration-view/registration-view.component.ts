@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject, OnInit, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, output } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { IonInput, IonItem, IonList, IonButton } from '@ionic/angular/standalone';
 import { IUserRegistration } from 'src/app/core/interfaces/auth.interfaces';
@@ -21,7 +21,8 @@ export class RegistrationViewComponent {
     confirmPassword: new FormControl('', [Validators.required]),
   })
 
-  private readonly store = inject(LoginStore)
+  private readonly store = inject(LoginStore);
+  onHideRegistration = output()
   ngOnInit() {
     this.store.logout()
     this.registrationForm.valueChanges.subscribe(console.log)
@@ -29,5 +30,8 @@ export class RegistrationViewComponent {
   registrationSubmit() {
     const data = this.registrationForm.value as IUserRegistration;
     this.store.registerUser(data)
+  }
+  hideRegistration() {
+    this.store.openRegistration(false)
   }
 }
