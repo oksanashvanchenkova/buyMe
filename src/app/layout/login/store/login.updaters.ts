@@ -23,3 +23,6 @@ export function setLoginError(): PartialStateUpdater<LoginSlice> {
 export function setRegistrationSuccess(): PartialStateUpdater<LoginSlice> {
     return _ => ({ isPending: false });
 }
+export function setShowRegistration(show: boolean): PartialStateUpdater<LoginSlice> {
+    return _ => ({ showRegistr: show });
+}
