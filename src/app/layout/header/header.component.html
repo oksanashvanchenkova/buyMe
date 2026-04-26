@@ -7,9 +7,15 @@
     </ion-buttons>
 
     <ion-buttons slot="end">
-      <ion-button fill="clear" (click)="goToLogin()">
-        <ion-icon name="person-circle" class="user-icon"></ion-icon>
-      </ion-button>
+      @if (!loginStore.user() && !userFromSessiom) {
+        <ion-button fill="clear" (click)="goToLogin()">
+          <ion-icon name="person-circle" class="user-icon"></ion-icon>
+        </ion-button>
+      } @else {
+        <ion-button fill="clear" (click)="goToProfile()">
+          <span>{{ loginStore.user()?.firstName ?? userFromSessiom }}</span>
+        </ion-button>
+      }
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
