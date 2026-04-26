@@ -9,7 +9,7 @@ declare const google: any;
 })
 export class AuthService {
   private http = inject(HttpClient);
-
+private tunel='https://applicable-cleaning-chorus-asian.trycloudflare.com/'
 
   userRegistration(userData: IUserRegistration): Observable<any> {
     return this.http.post<IUserRegistration>(`http://192.168.0.205:3000/auth/signup`, userData);
@@ -23,7 +23,7 @@ export class AuthService {
     console.log('--- Sending token to backend ---');
 
     return this.http.post(
-      'https://tattoo-gbp-suffered-pillow.trycloudflare.com/auth/google',
+      this.tunel+'auth/google',
       { idToken }
     );
   }

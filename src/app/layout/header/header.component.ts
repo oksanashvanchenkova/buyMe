@@ -46,4 +46,8 @@ export class HeaderComponent implements OnInit {
       this.loginStore.user()?.userId || sessionStorage.getItem('USER');
     this.router.navigate(['/profile/' + userId]);
   }
+  logOut(): void {
+    sessionStorage.clear();
+    this.router.navigate(['/login']);
+  }
 }
