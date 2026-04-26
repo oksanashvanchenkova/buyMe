@@ -5,7 +5,9 @@
         <img src="../../../assets/logo/logo.png" height="36"
       /></ion-button>
     </ion-buttons>
-
+    <ion-buttons slot="end" (click)="logOut()">
+      <ion-button href="/home"> LogOut</ion-button>
+    </ion-buttons>
     <ion-buttons slot="end">
       @if (!loginStore.user() && !userFromSessiom) {
         <ion-button fill="clear" (click)="goToLogin()">
