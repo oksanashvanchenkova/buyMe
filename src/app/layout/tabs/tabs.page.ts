@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { IonTabs, IonTabBar, IonTabButton, } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { triangle, ellipse, square } from 'ionicons/icons';
+import { LoginStore } from '../login/store/login.store';
 
 @Component({
   selector: 'app-tabs',
@@ -14,12 +15,13 @@ import { triangle, ellipse, square } from 'ionicons/icons';
 export class TabsPage {
   public environmentInjector = inject(EnvironmentInjector);
   private readonly router = inject(Router);
+  private readonly loginStore=inject(LoginStore)
   constructor() {
     addIcons({ triangle, ellipse, square });
   }
   handleTabClick(event: any) {
 
-    const user = sessionStorage.getItem('USER');
+    const user = this.loginStore.user();
     console.log(user)
     if (user) {
       console.log(event)

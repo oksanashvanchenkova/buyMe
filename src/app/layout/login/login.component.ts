@@ -47,7 +47,6 @@ export class LoginComponent {
   }
 
   handleCredentialResponse(response: any) {
-    console.log('Encoded JWT ID token: ' + response.credential);
     if (response) {
       this.store.loginByGoogle(response.credential)
     }

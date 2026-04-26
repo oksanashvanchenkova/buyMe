@@ -1,6 +1,7 @@
 import { PartialStateUpdater } from "@ngrx/signals";
 import { LoginSlice } from "./login.slice";
 import { IUserTokenData } from "../models/user.data.model";
+import { jwtDecode } from "jwt-decode";
 
 export function setPending(isPending: boolean): PartialStateUpdater<LoginSlice> {
     return _ => ({ isPending });
