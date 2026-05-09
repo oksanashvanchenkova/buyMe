@@ -1,12 +1,12 @@
 <ion-header>
   <ion-toolbar class="header-toolbar">
     <ion-buttons slot="start">
-      <ion-button href="/home">
+      <ion-button href="/tabs/home">
         <img src="../../../assets/logo/logo.png" height="36"
       /></ion-button>
     </ion-buttons>
     <ion-buttons slot="end" (click)="logOut()">
-      <ion-button href="/home"> LogOut</ion-button>
+      <ion-button href="/tabs/home"> LogOut</ion-button>
     </ion-buttons>
     <ion-buttons slot="end">
       @if (!loginStore.user() && !userFromSessiom) {
