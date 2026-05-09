@@ -21,11 +21,11 @@ export class TabsPage {
   }
   handleTabClick(event: any) {
 
-    const user = this.loginStore.user();
-    console.log(user)
-    if (user) {
+    const token = sessionStorage.getItem('accessToken');
+    console.log(token)
+    if (token) {
       console.log(event)
-      this.router.navigate(['/add'])
+      this.router.navigate(['tabs', 'add'])
     } else {
       console.log(event)
       this.router.navigate(['/login'])

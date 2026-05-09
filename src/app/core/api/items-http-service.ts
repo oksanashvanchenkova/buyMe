@@ -5,8 +5,8 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class BooksHttp {
-  private http = inject(HttpClient);
+export class ItemsHttpService {
+    private http = inject(HttpClient);
 
   getItem(): Observable<any> {
     const params = new HttpParams()
