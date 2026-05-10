@@ -1,40 +1,42 @@
 <ion-content class="add-content">
   <div class="page-wrapper">
-    <ion-list>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <app-images-control formControlName="images"></app-images-control>
+        <app-title-control formControlName="title"></app-title-control>
+        
+        <ion-item>
+          <ion-input label="Autor" formControlName="author" type="text"></ion-input>
+        </ion-item>
+
+        <app-description-control formControlName="description"></app-description-control>
+        
+        <app-item-condition formControlName="condition"></app-item-condition>
+
+        <ion-button type="submit" [disabled]="form.invalid">Wyślij</ion-button>
+      </form>
+    <!-- <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <ion-list>
-        <app-images-control></app-images-control>
-        <ion-item>
-          <ion-input label="Tytul" placeholder="Enter text"></ion-input>
-        </ion-item>
-
-        <ion-item>
-          <ion-input label="Autor" type="number" placeholder="000"></ion-input>
-        </ion-item>
-
-        <ion-item>
-          <ion-input
-            label="Password input"
-            type="password"
-            value="password"
-          ></ion-input>
-        </ion-item>
-
-        <ion-item>
-          <ion-input
-            label="Email input"
-            type="email"
-            placeholder="email@domain.com"
-          ></ion-input>
-        </ion-item>
-
-        <ion-item>
-          <ion-input
-            label="Telephone input"
-            type="tel"
-            placeholder="888-888-8888"
-          ></ion-input>
-        </ion-item>
+        <ion-list>
+          <app-images-control></app-images-control>
+          <app-title-control></app-title-control>
+          <ion-item>
+            <ion-input
+              label="Autor"
+              type="number"
+              placeholder="000"
+            ></ion-input>
+          </ion-item>
+          <app-description-control></app-description-control>
+          <ion-item>
+            <ion-input
+              label="Rok wydania"
+              type="number"
+              placeholder="1999"
+            ></ion-input>
+          </ion-item>
+          <app-item-condition></app-item-condition>
+        </ion-list>
       </ion-list>
-    </ion-list>
+    </form> -->
   </div>
 </ion-content>

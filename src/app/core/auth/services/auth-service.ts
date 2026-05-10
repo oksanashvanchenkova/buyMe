@@ -12,7 +12,7 @@ declare const google: any;
 export class AuthService {
   private http = inject(HttpClient);
   private tunel =
-    'https://symbols-gabriel-kingston-allowed.trycloudflare.com/';
+    'https://church-grill-understanding-wednesday.trycloudflare.com/';
 
   userRegistration(userData: IUserRegistration): Observable<any> {
     return this.http.post<IUserRegistration>(
