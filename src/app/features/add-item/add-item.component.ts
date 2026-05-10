@@ -1,43 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { IonContent, IonInput, IonItem, IonList, IonLabel } from '@ionic/angular/standalone';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { AddItemStore } from './store/add-item-store';
+import { IonRouterOutlet } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-add-item',
   templateUrl: './add-item.component.html',
   styleUrls: ['./add-item.component.scss'],
-  imports: [IonLabel, IonContent, IonInput, IonItem, IonList, IonLabel]
+  imports: [IonRouterOutlet],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AddItemComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() { }
-onFileSelected(event: any) {
-  const file: File = event.target.files[0];
-
-  if (file) {
-    this.uploadFile(file);
-  }
-}
-
-uploadFile(file: File) {
-  const formData = new FormData();
-  
-  // 'image' — це ключ, за яким бекенд буде шукати файл
-  formData.append('image', file, file.name);
-  
-  // Додаткові дані, якщо потрібно (наприклад, ID автора)
-  formData.append('authorId', '123');
-
-  const uploadUrl = 'https://your-api.com/upload';
-
-  // this.http.post(uploadUrl, formData).subscribe({
-  //   next: (response) => {
-  //     console.log('Файл успішно завантажено', response);
-  //   },
-  //   error: (error) => {
-  //     console.error('Помилка завантаження', error);
-  //   }
-  // });
-}
+export class AddItemComponent {
+  readonly store = inject(AddItemStore);
+  constructor() {}
 }

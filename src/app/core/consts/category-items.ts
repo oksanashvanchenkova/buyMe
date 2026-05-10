@@ -14,7 +14,7 @@ export const CATEGORY_ITEMS: ICategory[] = [
         id:2,
         name: 'Książki',
         iconSrc: '../../../assets/icons/books-icon.png',
-        linkData: '/catalog',
+        linkData: 'tabs/catalog',
         routerData: 'books'
     },
     {

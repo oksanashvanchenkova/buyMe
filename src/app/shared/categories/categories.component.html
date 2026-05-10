@@ -3,10 +3,7 @@
     <ion-row>
       @for (category of categories(); track category.name) {
         <ion-col size="4" size-md="4" size-lg="1">
-          <div
-            class="category-card"
-            [routerLink]="[category.linkData, category.routerData]"
-          >
+          <div class="category-card" (click)="redirectToCategory(category)">
             <img [src]="category.iconSrc" />
             <span>{{ category.name }}</span>
           </div>
