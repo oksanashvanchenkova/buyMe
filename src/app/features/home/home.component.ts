@@ -9,6 +9,7 @@ import { WelcomeComponent } from './components/welcome/welcome.component'
 import { HomeStore } from './store/home.store';
 import { ProductsListComponent } from 'src/app/shared/products-list/products-list.component';
 import { LoaderSkeletonComponent } from 'src/app/shared/loader-skeleton/loader-skeleton.component';
+import { CategoriesComponent } from '../../shared/categories/categories.component';
 
 @Component({
   selector: 'app-home',
@@ -18,6 +19,7 @@ import { LoaderSkeletonComponent } from 'src/app/shared/loader-skeleton/loader-s
     LoaderSkeletonComponent,
     IonInfiniteScroll,
     IonInfiniteScrollContent,
+    CategoriesComponent,
     ProductsListComponent],
   changeDetection: ChangeDetectionStrategy.OnPush
 })

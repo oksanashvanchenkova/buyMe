@@ -5,21 +5,8 @@
     <ion-searchbar animated="true" placeholder="Wyszukaj" (ionInput)="handleInput($event)"></ion-searchbar>
   </div>
   <app-welcome></app-welcome>
+  <app-categories [categories]="store.categories()"></app-categories>
 
-  <div class="categories-wrapper">
-    <ion-grid>
-      <ion-row>
-        @for(category of store.categories(); track category.name){
-        <ion-col size="4" size-md="4" size-lg="1">
-          <div class="category-card" [routerLink]="[category.linkData, category.routerData]">
-            <img [src]="category.iconSrc" />
-            <span>{{ category.name }}</span>
-          </div>
-        </ion-col>
-        }
-      </ion-row>
-    </ion-grid>
-  </div>
   @if(store.isBusy()){
   <app-loader-skeleton [skeletonAmount]="8" [height]="300" [width]="48"></app-loader-skeleton>
   }@else{

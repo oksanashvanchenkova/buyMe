@@ -1,3 +1,8 @@
-<p>
-  images-control works!
-</p>
+<ion-item>
+  <ion-label position="stacked">Dodaj zdjęcie (JPG, PNG)</ion-label>
+  <input
+    type="file"
+    accept=".jpg,.jpeg,.png"
+    (change)="onFileSelected($event)"
+  />
+</ion-item>
